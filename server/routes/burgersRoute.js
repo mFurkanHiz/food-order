@@ -1,9 +1,9 @@
 const express = require("express");
-const burgerodel = require("../models/BurgerModel");
-const router = express.Router(); // rotalama yaptırıyor
+const burgerModel = require("../models/BurgerModel");
+const router = express.Router();
 
 //GET ALL FOODS SERVİSİ
-app.get("/getFoods", async (req, res) => {
+router.get("/getBurgers", async (req, res) => {
   try {
     const foods = await burgerModel.find({});
     res.send(foods);

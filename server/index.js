@@ -26,6 +26,10 @@ app.use(cors());
 //   }
 // });
 
+//servisleri route ile çağırma
+const burgersRoute = require("./routes/burgersRoute");
+app.use("/api/burgers", burgersRoute);
+
 //serverımızı inşa edeceğimiz portu belirledik.
 const PORT = 4000;
 app.listen(PORT, () => {

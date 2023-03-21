@@ -1,13 +1,19 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Navbar() {
+  const cartState = useSelector((state) => state.addToCartReducer);
+
+  const { cartItems } = cartState;
+
   return (
     <div>
       <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
         <div className="container">
-          <a className="navbar-brand text-danger" href="#">
+          <Link className="navbar-brand text-danger" to="/">
             FOOD-ORDER
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,25 +28,25 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="#">
+                <Link className="nav-link " aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/">
                   Features
-                </a>
+                </Link>
               </li>
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/sepet">
                   Sepet
-                  <i class="fa-sharp fa-solid fa-bag-shopping mx-2"></i>
-                  <span class="position-absolute top-10 start-80 translate-middle badge rounded-pill bg-danger">
-                    1
+                  <i className="fa-sharp fa-solid fa-bag-shopping mx-2"></i>
+                  <span className="position-absolute top-10 start-80 translate-middle badge rounded-pill bg-danger">
+                    {cartItems.length}
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

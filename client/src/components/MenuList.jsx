@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch } from "react-redux";
+import { addToCartAction } from "../actions/cartAction";
 
 function MenuList({ menu }) {
   /*Modal için UseStateler*/
@@ -13,7 +15,17 @@ function MenuList({ menu }) {
   const adetHandler = (e) => {
     setMiktar(e.target.value);
   };
+
   console.log(ozellik);
+
+  const dispatch = useDispatch();
+
+  // useDispatch ile aksiyon çağırırız
+  // useSelector ile reducerları çağırıyoruz
+
+  const addToCart = () => {
+    dispatch(addToCartAction(menu, miktar, ozellik)); // aksiyon çağırıyor
+  };
 
   return (
     <div>
@@ -54,21 +66,23 @@ function MenuList({ menu }) {
               className="form-select mb-3"
               onChange={adetHandler}
             >
-              {[...Array(10).keys()].map((x) => (
-                <option value={x + 1}>{x + 1}</option>
+              {[...Array(10).keys()].map((x, index) => (
+                <option key={index} value={x + 1}>
+                  {x + 1}
+                </option>
               ))}
             </select>
           </div>
         </div>
         <div className="col-md-12 mt-3">
           <h6 className="text-danger">
-            Fiyat:{menu.fiyat[0][ozellik] * miktar} ₺
+            Fiyat: {menu.fiyat[0][ozellik] * miktar}
           </h6>
         </div>
         <div className="div">
-          <a href="#" className="btn btn-outline-danger w-100">
+          <button className="btn btn-outline-danger w-100" onClick={addToCart}>
             SEPETE EKLE
-          </a>
+          </button>
         </div>
       </div>
 
