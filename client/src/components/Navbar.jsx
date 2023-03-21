@@ -32,11 +32,6 @@ function Navbar() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Features
-                </Link>
-              </li>
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">

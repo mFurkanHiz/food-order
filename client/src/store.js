@@ -9,7 +9,15 @@ const finalReducer = combineReducers({
   addToCartReducer: addToCartReducer,
 });
 
-const initialState = {};
+const cartItems = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("catItems"))
+  : [];
+
+const initialState = {
+  addToCartReducer: {
+    cartItems: cartItems,
+  },
+};
 
 /*
 extension: error lens 
