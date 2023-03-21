@@ -1,0 +1,7 @@
+Redux
+
+State management kütüphanesi. Context ile aynı işi daha kapsamlı şekilde yapmaktadır.
+
+dispatch (parametre alıp reduxu tetikler)
+getState (mevcut stat'i döner)
+payload (data)
