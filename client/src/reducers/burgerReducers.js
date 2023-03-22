@@ -1,5 +1,8 @@
 export const getAllBurgersReducer = (state = { burgers: [] }, action) => {
   switch (action.type) {
+    // set yapıyoruz
+    // useSelector ile anasayfadayken bu verileri çekiyoruz
+
     case "GET_BURGERS_REQUEST":
       return {
         loading: true,

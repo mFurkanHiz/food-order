@@ -3,6 +3,8 @@ import axios from "axios";
 export const getAllBurgers = () => async (dispatch) => {
   dispatch({ type: "GET_BURGERS_REQUEST" });
 
+  // aksiyon varsa dispatch yapacağız (sonra)
+
   try {
     const response = await axios.get(
       "http://localhost:4000/api/burgers/getBurgers"

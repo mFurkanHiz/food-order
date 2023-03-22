@@ -15,6 +15,8 @@ function HomePage() {
   const burgerState = useSelector((state) => state.getAllBurgersReducer);
 
   const { burgers, loading } = burgerState;
+  // yukarıdaki ile aşağıdaki burgers için aynı işlemi gerçekleştirir
+  //const burgers1 = burgerState.burgers;
 
   const dispatch = useDispatch();
 

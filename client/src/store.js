@@ -8,7 +8,7 @@ const finalReducer = combineReducers({
   getAllBurgersReducer: getAllBurgersReducer,
   addToCartReducer: addToCartReducer,
 });
-
+// bu kısım sadece local storage için
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("catItems"))
   : [];
@@ -18,6 +18,7 @@ const initialState = {
     cartItems: cartItems,
   },
 };
+// buraya kadar
 
 /*
 extension: error lens 
