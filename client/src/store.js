@@ -1,12 +1,14 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { getAllBurgersReducer } from "./reducers/burgerReducers";
 import { addToCartReducer } from "./reducers/cartReducers";
+import { registerUserReducer } from "./reducers/userReducers";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const finalReducer = combineReducers({
   getAllBurgersReducer: getAllBurgersReducer,
   addToCartReducer: addToCartReducer,
+  registerUserReducer: registerUserReducer,
 });
 // bu kısım sadece local storage için
 const cartItems = localStorage.getItem("cartItems")
