@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCartAction } from "../actions/cartActions";
+import { addToCartAction, deleteFromCartAction } from "../actions/cartActions";
 
 function CartPage() {
   const cartState = useSelector((state) => state.addToCartReducer);
@@ -58,6 +58,7 @@ function CartPage() {
                 <i
                   className="fa-solid fa-trash text-danger fa-1x mx-2"
                   style={{ cursor: "pointer" }}
+                  onClick={() => dispatch(deleteFromCartAction(urun))}
                 />
                 <h4 className="text-danger">Fiyat: {urun.fiyatlar} ₺</h4>
                 <hr className="w-75 m-auto" />

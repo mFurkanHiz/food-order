@@ -19,3 +19,9 @@ export const addToCartAction =
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }
   };
+
+export const deleteFromCartAction = (menu) => (dispatch, getState) => {
+  dispatch({ type: "DELETE_FROM_CART", payload: menu });
+  const cartItems = getState().addToCartReducer.cartItems;
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
