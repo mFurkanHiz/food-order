@@ -11,7 +11,7 @@ function MenuList({ menu }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [ozellik, setOzellik] = useState("medium");
+  const [ozellik, setOzellik] = useState("small");
   const [miktar, setMiktar] = useState(1);
 
   const adetHandler = (e) => {
@@ -90,7 +90,7 @@ function MenuList({ menu }) {
         </div>
         <div className="col-md-12 mt-3">
           <h6 className="text-danger">
-            Fiyat: {menu.fiyat[0][ozellik] * miktar}
+            Fiyat: {menu.fiyat[0][ozellik] * miktar} ₺
           </h6>
         </div>
         <div className="div">
