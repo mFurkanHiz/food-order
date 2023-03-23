@@ -2,3 +2,9 @@ mongodb+srv://admin:asd@cluster0.jkgfq38.mongodb.net/food-order
 
 sign in to this page for payment operations
 https://dashboard.stripe.com/register
+
+Stripe publishable key:
+pk_test_51MooasDWVpXTaFrBsWkauRM9D4BSuhnZ4gWiL0viuDuWjiHz4lMPvJNREjVW7OhjRskYGScJ60zdEK2EAj47BzKa00LjyXD4U7
+
+Stripe secret key
+sk_test_51MooasDWVpXTaFrBYzADAPe7rjvIr1NmekTM8AOINLPpjonoNpzjhpz8uT0LEcqqhhN09rKAkTVyT3NBJjORSJr200EDHm2UB9

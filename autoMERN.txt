@@ -1,0 +1,30 @@
+
+-- in server
+npm init -y
+npm install express mongoose cors nodemon
+npm i stripe
+npm i uuid
+npm start
+
+-- in client
+cd client
+npx create-react-app .
+npm i react-router-dom
+npm i axios
+npm i react-bootstrap
+npm i react-redux@8.0.2 redux@4.0.5 redux-thunk@2.4.2 redux-devtools-extension
+npm i react-toastify
+npm i sweetalert2
+npm i react-stripe-checkout
+npm start
+
+
+/* in server package.json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+*/
+
+
+npm i dotenv
