@@ -1,7 +1,10 @@
+--------------- Initialization for all packages ---------------
 
 -- in server
+cd server
 npm init -y
 npm install express mongoose cors nodemon
+npm i dotenv
 npm i stripe
 npm i uuid
 npm start
@@ -26,5 +29,14 @@ npm start
   },
 */
 
+--------------- Installing all packages in another environment ---------------
 
-npm i dotenv
+-- in server
+cd server
+npm install
+npm start
+
+-- in client
+cd client
+npm install
+npm start
