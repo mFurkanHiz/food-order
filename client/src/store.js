@@ -1,30 +1,24 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunk from "redux-thunk";
 import { getAllBurgersReducer } from "./reducers/burgerReducers";
+import { composeWithDevTools } from "redux-devtools-extension";
 import { addToCartReducer } from "./reducers/cartReducers";
 import { registerUserReducer } from "./reducers/userReducers";
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
 
 const finalReducer = combineReducers({
   getAllBurgersReducer: getAllBurgersReducer,
   addToCartReducer: addToCartReducer,
   registerUserReducer: registerUserReducer,
 });
-// bu kısım sadece local storage için
-const cartItems = localStorage.getItem("cartItems")
-  ? JSON.parse(localStorage.getItem("catItems"))
-  : [];
 
+const cartItems = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : [];
 const initialState = {
   addToCartReducer: {
     cartItems: cartItems,
   },
 };
-// buraya kadar
-
-/*
-extension: error lens 
-*/
 
 const compose = composeWithDevTools({});
 

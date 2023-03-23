@@ -9,9 +9,11 @@ const burgerSchema = new mongoose.Schema(
     img: { type: String, require },
     desc: { type: String, require },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
-// model(tablo adı (db de olan), şema adı)
+
 const burgerModel = mongoose.model("foods", burgerSchema);
 
 module.exports = burgerModel;

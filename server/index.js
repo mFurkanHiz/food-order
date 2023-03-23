@@ -1,37 +1,31 @@
 //express paketini tanımladık
 const express = require("express");
-
 //cors paketini tanımladık.
 const cors = require("cors");
-
 //app middleware i vasıtasıyla express kütüphanesine erişim sağladık.
 const app = express();
 
 //db için hazırlamış olduğumuz js dosyasını çağıralım.
 const db = require("./db");
+const burgerModel = require("./models/BurgerModel");
+const burgersRoute = require("./routes/burgersRoute");
+const usersRoute = require("./routes/usersRoute");
 
-//middlewareimiz ile cors kütüphanesini kullanmayı ve json req ve res'lerinde hata almanın önüne geçtk.
+//middlewareimiz ile cors kütüphanesini kullanmayı ve json req ve res'lerinde hata almanın önüne geçtik.
 app.use(express.json());
 app.use(cors());
 
-// const burgerModel = require("./models/BurgerModel");
-// //getFoods servisi
-// app.get("/getFoods", async (req, res) => {
-//   try {
-//     const foods = await burgerModel.find({});
-//     res.send(foods);
-//     // console.log(users);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
-
 //servisleri route ile çağırma
-const burgersRoute = require("./routes/burgersRoute");
+//burger servisleri
 app.use("/api/burgers", burgersRoute);
 
+//user servisleri
+app.use("/api/users", usersRoute);
+
 //serverımızı inşa edeceğimiz portu belirledik.
-const PORT = 4000;
-app.listen(PORT, () => {
-  console.log(`Server UP Port: ${PORT}`);
+var port = 4000;
+app.listen(4000, () => {
+  console.log(
+    `Food Order Serverı ${port} portunda başarıyla ayağa kalktı. 🔥🔥`
+  );
 });

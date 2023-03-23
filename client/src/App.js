@@ -3,7 +3,6 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import CartPage from "./pages/CartPage";
 import HomePage from "./pages/HomePage";
-import foodDatas from "./yemekdata";
 
 function App() {
   return (

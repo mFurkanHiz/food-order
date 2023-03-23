@@ -20,7 +20,7 @@ export const addToCartReducer = (state = { cartItems: [] }, action) => {
 
     case "DELETE_FROM_CART":
       return {
-        ...state, // mevcut state
+        ...state,
         cartItems: state.cartItems.filter(
           (sepet) => sepet._id !== action.payload._id
         ),

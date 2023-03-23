@@ -10,11 +10,19 @@ function CartPage() {
 
   const dispatch = useDispatch();
 
+  const toplamFiyat = cartItems.reduce((x, urun) => x + urun.fiyatlar, 0);
+
   return (
     <div>
       <div className="container">
         <div className="text-center">
           <h2 className="display-2 text-warning">Sepetim</h2>
+          {toplamFiyat == 0 ? (
+            <></>
+          ) : (
+            <h4 className="text-danger">Toplam Fiyat: {toplamFiyat} ₺</h4>
+          )}
+
           {cartItems.length == 0 ? (
             <div className="alert alert-danger mt-5" role="alert">
               Sepetinizde ürün bulunmamaktadır :(
@@ -28,7 +36,7 @@ function CartPage() {
                 <div className="col-md-4">
                   {" "}
                   <h3>{urun.ad}</h3>
-                  <p className="text-dark">Ürün özelliği{urun.ozellik}</p>
+                  <p className="text-dark">Ürün boyutu: {urun.ozellik}</p>
                   <p className="text-dark">{urun.desc}</p>
                 </div>
                 <div className="col-md-4">

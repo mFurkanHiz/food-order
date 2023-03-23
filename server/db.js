@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const DB_LINK =
-  "mongodb+srv://admin:asd@cluster0.jkgfq38.mongodb.net/food-order?retryWrites=true&w=majority";
-mongoose.connect(DB_LINK);
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
 
 //connection'ın açık kapalı olmasına göre iki farklı opsiyon verdiğimiz veritabanını dinleyen metotları yazalım.
+
 var db = mongoose.connection;
+
 db.on("connected", () => {
   console.log("Mongo DB bağlantısı başarıyla sağlandı");
 });

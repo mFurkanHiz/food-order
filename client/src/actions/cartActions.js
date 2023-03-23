@@ -9,11 +9,12 @@ export const addToCartAction =
       ozellik: ozellik,
       miktar: Number(miktar),
       fiyat: menu.fiyat,
-      fiyatlar: menu.fiyat[0][ozellik] * miktar,
+      fiyatlar: menu.fiyat[0][ozellik] * Number(miktar),
       kategori: menu.kategori,
       desc: menu.desc,
     };
 
+    console.log(cartItem.fiyatlar);
     if (miktar < 1) {
       Swal.fire({
         title: "Emin misiniz?",
@@ -31,7 +32,6 @@ export const addToCartAction =
         }
       });
     }
-
     if (miktar > 0) {
       dispatch({ type: "ADD_TO_CART", payload: cartItem });
 
@@ -40,8 +40,8 @@ export const addToCartAction =
     }
   };
 
-export const deleteFromCartAction = (menu) => (dispatch, getState) => {
-  dispatch({ type: "DELETE_FROM_CART", payload: menu });
+export const deleteFromCartAction = (urun) => (dispatch, getState) => {
+  dispatch({ type: "DELETE_FROM_CART", payload: urun });
   const cartItems = getState().addToCartReducer.cartItems;
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
