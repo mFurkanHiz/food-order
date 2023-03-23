@@ -23,7 +23,7 @@ export const registerUserReducer = (state = { users: [] }, action) => {
   }
 };
 
-export const loginUserReducer = (state = {}, action) => {
+export const loginUserReducer = (state = { currentUser: null }, action) => {
   switch (action.type) {
     case "USER_LOGIN_REQUEST":
       return {

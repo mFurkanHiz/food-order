@@ -1,16 +1,26 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addToCartAction, deleteFromCartAction } from "../actions/cartActions";
 
 function CartPage() {
   const cartState = useSelector((state) => state.addToCartReducer);
+  const userState = useSelector((state) => state.loginUserReducer);
 
   const { cartItems } = cartState;
+  const { currentUser } = userState;
   console.log(cartItems);
 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const toplamFiyat = cartItems.reduce((x, urun) => x + urun.fiyatlar, 0);
+
+  const checkOutHandler = () => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+    console.log("ödeme ekranına aktaralım");
+  };
 
   return (
     <div>
@@ -20,7 +30,15 @@ function CartPage() {
           {toplamFiyat == 0 ? (
             <></>
           ) : (
-            <h4 className="text-danger">Toplam Fiyat: {toplamFiyat} ₺</h4>
+            <>
+              <h4 className="text-danger">Toplam Fiyat: {toplamFiyat} ₺</h4>
+              <button
+                className="btn btn-outline-danger my-3 w-25"
+                onClick={checkOutHandler}
+              >
+                HEMEN ÖDE!
+              </button>
+            </>
           )}
 
           {cartItems.length == 0 ? (
