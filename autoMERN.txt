@@ -40,3 +40,13 @@ npm start
 cd client
 npm install
 npm start
+
+--------------- Running the app ---------------
+
+-- in server
+cd server
+npm start
+
+-- in client
+cd client
+npm start

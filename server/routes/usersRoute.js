@@ -2,7 +2,7 @@ const express = require("express");
 const UserModel = require("../models/UserModel");
 const router = express.Router();
 
-// register
+//Register
 router.post("/register", async (req, res) => {
   const { name, mail, password } = req.body;
 
@@ -15,7 +15,9 @@ router.post("/register", async (req, res) => {
       mail: mail,
       password: password,
     });
+
     /*Deneme yorum satırı*/
+
     try {
       await newUser.save();
       res.send("User register is successfull");
@@ -25,10 +27,10 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// login
+//Login
+
 router.post("/login", async (req, res) => {
   const { mail, password } = req.body;
-  // alttakiyle aynı
   // const mail = req.body.mail;
   // const password = req.body.password
 

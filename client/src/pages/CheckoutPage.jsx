@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import Swal from "sweetalert2";
 import { checkoutOrderAction } from "../actions/orderActions";
-//pk_test_51MooasDWVpXTaFrBsWkauRM9D4BSuhnZ4gWiL0viuDuWjiHz4lMPvJNREjVW7OhjRskYGScJ60zdEK2EAj47BzKa00LjyXD4U7
+
 function CheckoutPage({ toplamfiyat }) {
   const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ function CheckoutPage({ toplamfiyat }) {
         stripeKey="pk_test_51MooasDWVpXTaFrBsWkauRM9D4BSuhnZ4gWiL0viuDuWjiHz4lMPvJNREjVW7OhjRskYGScJ60zdEK2EAj47BzKa00LjyXD4U7"
         currency="TRY"
       >
-        <button className="btn btn-outline-danger mb-3 w-25">HEMEN ÖDE!</button>
+        <button className="btn btn-outline-danger my-3 w-25">HEMEN ÖDE!</button>
       </StripeCheckout>
     </div>
   );

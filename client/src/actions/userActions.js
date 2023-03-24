@@ -1,6 +1,5 @@
 import axios from "axios";
 import Swal from "sweetalert2";
-
 export const registerUserAction = (user) => async (dispatch) => {
   dispatch({ type: "USER_REGISTER_REQUEST" });
 
@@ -9,7 +8,7 @@ export const registerUserAction = (user) => async (dispatch) => {
       "http://localhost:4000/api/users/register",
       user
     );
-    console.log("Register Response: ", response);
+    console.log("Response", response);
 
     dispatch({ type: "USER_REGISTER_SUCCESS", payload: response.data });
     Swal.fire({
@@ -19,6 +18,7 @@ export const registerUserAction = (user) => async (dispatch) => {
       showConfirmButton: false,
       timer: 1500,
     });
+
     window.location.href = "/login";
   } catch (error) {
     dispatch({ type: "USER_REGISTER_FAILED", payload: error });
@@ -38,8 +38,7 @@ export const loginUserAction = (user) => async (dispatch, getState) => {
       "http://localhost:4000/api/users/login",
       user
     );
-    console.log("Login Response: ", response);
-
+    console.log("Login response", response);
     dispatch({ type: "USER_LOGIN_SUCCESS", payload: response.data });
     Swal.fire({
       position: "center",
@@ -55,12 +54,12 @@ export const loginUserAction = (user) => async (dispatch, getState) => {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "Giriş Hatalı",
+      text: "Kullanıcı Adı ya da Şifre Hatalı",
     });
   }
 };
 
 export const logoutUserAction = () => {
   localStorage.removeItem("currentUser");
-  window.location.href = "/";
+  window.location.href = "/login";
 };

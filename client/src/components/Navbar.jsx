@@ -14,7 +14,6 @@ function Navbar() {
   const logoutHandler = async () => {
     await dispatch(logoutUserAction());
   };
-
   return (
     <div>
       <nav className="navbar navbar-dark navbar-expand-lg bg-dark">

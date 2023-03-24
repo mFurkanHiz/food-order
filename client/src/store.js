@@ -3,13 +3,19 @@ import thunk from "redux-thunk";
 import { getAllBurgersReducer } from "./reducers/burgerReducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { addToCartReducer } from "./reducers/cartReducers";
-import { registerUserReducer, loginUserReducer } from "./reducers/userReducers";
+import { loginUserReducer, registerUserReducer } from "./reducers/userReducers";
+import {
+  checkoutOrderReducer,
+  getUserOrdersReducer,
+} from "./reducers/orderReducers";
 
 const finalReducer = combineReducers({
   getAllBurgersReducer: getAllBurgersReducer,
   addToCartReducer: addToCartReducer,
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
+  checkoutOrderReducer: checkoutOrderReducer,
+  getUserOrdersReducer: getUserOrdersReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")
