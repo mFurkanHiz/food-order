@@ -1,0 +1,12 @@
+netlify: front end i atacağız
+
+heroku: backend i atacağız
+
+bunlar servislerimizi localhost olmadan çalıştırmamızı ağlıyor (hosting gibi ama servisler üzerine)
+
+npm run build
+sonucunda elde edilen dosya gönderiliyor
+
+
+
+post servisinin params kısmı silme işlemi yapmamıza yarar
