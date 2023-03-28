@@ -76,18 +76,19 @@ export const getBurgerById = (burgerid) => async (dispatch) => {
   }
 };
 
-// export const editBurgerAction = (burger) => async (dispatch) => {
-//   try {
-//     const response = await axios.post("http://localhost:4000/api/burgers/editBurger", { _id: burger._id });
-//     Swal.fire({
-//       position: "center",
-//       icon: "success",
-//       title: "Silme İşlemi Başarılı",
-//       showConfirmButton: false,
-//       timer: 1500,
-//     });
-//     console.log(response);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const editBurgerAction = (editedBurger) => async (dispatch) => {
+  dispatch({ type: "EDIT_BURGER_REQUEST" });
+
+  try {
+    const response = await axios.post(
+      "http://localhost:4000/api/burgers/editBurger",
+      { editedBurger }
+    );
+
+    console.log(response);
+    dispatch({ type: "EDIT_BURGER_SUCCESS", payload: response.data });
+    window.location.href("/admin/menulist");
+  } catch (error) {
+    dispatch({ type: "EDIT_BURGER_FAILED", payload: error });
+  }
+};

@@ -71,4 +71,28 @@ router.post("/getusersorders", async (req, res) => {
   }
 });
 
+//GET ALL ORDERs SERVİSİ
+router.get("/getAllOrders", async (req, res) => {
+  try {
+    const orders = await OrderModel.find({});
+    res.send(orders);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//deliver post işlemi
+router.post("/deliverOrder", async (req, res) => {
+  const orderid = req.body.orderid;
+
+  try {
+    const order = await OrderModel.findOne({ _id: orderid });
+    order.isDelivered = true;
+    await order.save();
+    res.send("Sipariş Başarıyla Teslim Edildi");
+  } catch (error) {
+    res.status(400).json({ message: "Siparişlere Erişilemiyor", error });
+  }
+});
+
 module.exports = router;
